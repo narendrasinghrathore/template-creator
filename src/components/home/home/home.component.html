@@ -1,1 +1,27 @@
-<p>home works!</p>
+<main>
+  <aside class="templates">
+    <section
+      (click)="applyClass(i)"
+      [class]="'template-' + i"
+      *ngFor="let s of styles; let i = index"
+      [ngClass]="{ active: 'template-' + i === defaultClass }"
+    ></section>
+  </aside>
+  <section class="template-editor" [ngClass]="defaultClass">
+    <section class="heading">{{ data.heading || "Your heading" }}</section>
+    <section class="discount">
+      {{
+        data.discount ||
+          "Your discount details goes here, click on edit to start"
+      }}
+    </section>
+  </section>
+</main>
+<footer class="actions">
+  <button class="mat-button" [routerLink]="'/posts'">Saved Posts</button>
+  <span class="spacer"></span>
+  <button class="mat-button" (click)="save()" color="primary">
+    {{ existingKey ? "Update" : "Save" }}
+  </button>
+  <button class="mat-button" (click)="edit()">Edit</button>
+</footer>

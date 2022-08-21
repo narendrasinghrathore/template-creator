@@ -1,1 +1,14 @@
-<p>post works!</p>
+<nav>
+  <a [routerLink]="'/'"> Home </a>
+</nav>
+<section class="container">
+  <ng-container *ngIf="existingSavedTemplates">
+    <section
+      [routerLink]="'/' + t.key"
+      [class]="t.css"
+      *ngFor="let t of existingSavedTemplates; let i = index"
+    >
+      {{ t?.data?.heading }}
+    </section>
+  </ng-container>
+</section>
