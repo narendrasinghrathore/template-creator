@@ -29,10 +29,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v1
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./dist/template-creator
+          source: ../../../dist/template-creator
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
